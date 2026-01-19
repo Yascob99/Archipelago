@@ -1,5 +1,12 @@
 # [Archipelago](https://archipelago.gg) ![Discord Shield](https://discordapp.com/api/guilds/731205301247803413/widget.png?style=shield) | [Install](https://github.com/ArchipelagoMW/Archipelago/releases)
 
+## Fork Notes
+This particular fork is the development location for the following game worlds, standalone from the archipelago game worlds listed below
+* Blue Prince
+
+
+## Back to the Base  Readme
+
 Archipelago provides a generic framework for developing multiworld capability for game randomizers. In all cases,
 presently, Archipelago is also the randomizer itself.
 
