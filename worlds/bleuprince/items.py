@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from .rooms import rooms
+from .constants import *
 
 from BaseClasses import Item, ItemClassification
 
@@ -139,7 +140,7 @@ ITEM_NAME_TO_ID = {
     # Trash Item from digging. Client may interpret this freely as any of the "trash" items
     #
     "Dug Up Nothing": 50000,
-} | {k: v["item_id"] for k, v in rooms.items()}
+} | {k: v[ROOM_ITEM_ID_KEY] for k, v in rooms.items()}
 
 
 DEFAULT_ITEM_CLASSIFICATIONS = {
@@ -271,7 +272,7 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
     # Trash Item from digging. Client may interpret this freely as any of the "trash" items
     #
     "Dug Up Nothing": ItemClassification.filler,
-} | {k: v["item_classification"] for k, v in rooms.items()}
+} | {k: v[ROOM_ITEM_CLASSIFICATION_KEY] for k, v in rooms.items()}
 
 
 class BluePrinceItem(Item):

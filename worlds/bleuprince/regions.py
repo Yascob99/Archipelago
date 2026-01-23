@@ -71,3 +71,5 @@ def create_all_regions(world: BluePrinceWorld) -> None:
 
 def connect_regions(world: BluePrinceWorld) -> None:
     campsite = world.get_region("The Campsite")
+
+    # TODO make connections
