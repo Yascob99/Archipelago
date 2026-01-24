@@ -20,3 +20,7 @@ ROOM_LAYOUT_TYPE_I = "room_layout_type_i"
 ROOM_LAYOUT_TYPE_J = "room_layout_type_j"
 # One of the room layout types. Specifically, for rooms with 4 entrances.
 ROOM_LAYOUT_TYPE_X = "room_layout_type_x"
+
+
+# room locaiton type key is a key used to set if a room is from the outer rooms
+OUTER_ROOM_KEY = "is_outer_room"
