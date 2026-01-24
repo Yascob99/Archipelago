@@ -6,6 +6,8 @@ from BaseClasses import ItemClassification, Location
 
 from . import items
 
+from .rooms import rooms
+
 if TYPE_CHECKING:
     from .world import BluePrinceWorld
 
