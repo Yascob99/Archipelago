@@ -11,8 +11,7 @@ if TYPE_CHECKING:
     from .world import BluePrinceWorld
 
 
-# TODO add atelier
-# TODO check lambdas for items/events that I need to add/create.
+# TODO-1 add atelier
 def create_and_connect_regions(world: BluePrinceWorld) -> None:
 
     ##################
@@ -124,17 +123,11 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
             room = world.get_region(k)
 
             # Connect room to outer room if you have that room
+            # TODO-0 Add requirement on shrine and west-path
             outer_room.connect(room, f"Outer Room To {k}", lambda state: state.has(k, world.player))
         else:
-            # Connect all other rooms to outer room if you have that room unlocked and the shrine to monk.
-            # TODO this doesent take into acount that you must first reach the room in the normal manner first, which has its own logic.
-            # outer_room.connect(
-            #     room,
-            #     f"Outer Room To {k}",
-            #     lambda state: state.has(k, world.player) and state.has("Shrine"),
-            # )
 
-            # TODO: This does not take into account that you need to have some level of placement restriction
+            # TODO-2: This does not take into account that you need to have some level of placement restriction
             # Connect all other rooms to campsite (entrance hall?) if you have that room unlocked
             grounds.connect(room, f"Campsite To {k}", lambda state: state.has(k, world.player))
 
@@ -160,7 +153,7 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     )
     grounds.connect(
         the_precipice, "Grounds To Precipice"
-    )  # TODO Having blue flame elevator access. Requires (1: apple orchard, 2: outer room (school house, hovel), 3: Gemstone Cavern)
+    )  # TODO-0 Having blue flame elevator access. Requires (1: apple orchard, 2: outer room (school house, hovel), 3: Gemstone Cavern)
     grounds.connect(
         sealed_entrance,
         "Grounds To Sealed Entrance",
@@ -173,7 +166,7 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     )
     the_precipice.connect(
         aries_court, "Precipice to Aries Court"
-    )  # TODO (requires solving Castle puzzle, which requires specific room sets.)
+    )  # TODO-0 (requires solving Castle puzzle, which requires specific room sets.)
     sealed_entrance.connect(
         basement,
         "Sealed Entrance To Basement",
@@ -272,7 +265,7 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     ###################################
     # COMPLEX REGION CONNECTION LOGIC #
     ###################################
-    # TODO (These connections have quite complex logic relating to the )
+    # TODO-0 (These connections have quite complex logic relating to the )
     reservoir_gear_side.connect(
         safehouse, "Reservoir Gear Side To Safehouse"
     )  # Pump Room & Fountain Side Access. (take fountain side to gear side, lower again, and make it back down on gear side.)

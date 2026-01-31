@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 LOCATION_NAME_TO_ID = {
     "Entrance Hall East Vase": 0,
     "Entrance Hall West Vase": 1,
-    # TODO add location map
+    # TODO-0 add location map
     # LOCAITONS
     # First time entering a room
     # first time picking up a unique item
@@ -39,7 +39,7 @@ def create_all_locations(world: BluePrinceWorld) -> None:
 
 def create_regular_locations(world: BluePrinceWorld) -> None:
 
-    # TODO create locations
+    # TODO-0 create locations
     bottom_right_room = world.get_region("Entrance Hall")
     bottom_right_room_locations = get_location_names_with_ids(["Entrance Hall East Vase", "Entrance Hall West Vase"])
     bottom_right_room.add_locations(bottom_right_room_locations, BluePrinceLocation)

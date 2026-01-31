@@ -189,7 +189,7 @@ class BluePrinceItem(Item):
     game = "Blue Prince"
 
 
-# TODO: Fix these because the filler currently does not match ACTUAL filler options.
+# TODO-0: Fix these because the filler currently does not match ACTUAL filler options.
 def get_random_filler_item_name(world: BluePrinceWorld) -> str:
 
     if world.random.randint(0, 99) < world.options.trap_percentage:
@@ -365,7 +365,7 @@ def create_item_with_correct_classification(world: BluePrinceWorld, name: str) -
 # Create the items For the world
 def create_all_items(world: BluePrinceWorld) -> None:
 
-    # TODO Implement this list
+    # TODO-0 Implement this list
     # Items that always exist.
     itempool: list[Item] = [
         world.create_item("Key"),
@@ -375,7 +375,7 @@ def create_all_items(world: BluePrinceWorld) -> None:
         world.create_item("Health Upgrade"),
     ]
 
-    # TODO Implement these items.
+    # TODO-0 Implement these items.
     # Create Items Based On Options
     # if world.options.hammer:
     #     itempool.append(world.create_item("Hammer"))

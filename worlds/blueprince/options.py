@@ -50,26 +50,8 @@ class ItemSanity(Toggle):
     visibility = Visibility.none
 
 
-# TODO: Determine what the best way to have this be an option is.
-# I can
-# - Use a static count
-# - Enable/Disable specific locations?
-# class UpgradeDiskSanity(Toggle):
-#     """
-#     Currently a Development option:
-#     Upgrade Disk Sanity enables the ability for upgrade disks to be part of the item pool.
-#     """
-
-#     display_name = "Dev: Upgrade Disk Sanity"
-
-#     # Unknown Viability. Keeping false until deemed viable.
-#     default = False
-#     # Development Option. Disable visible until implemented.
-#     visibility = Visibility.none
-
-
-# TODO Crate Sanity?
-# TODO Examine the full chat log for the list of stuff.
+# TODO-2 Crate Sanity?
+# TODO-2 Document full list of potential checks/locations posted in blue prince thread.
 
 
 # Filler Options.
@@ -156,7 +138,7 @@ class TrapTypeDistribution(OptionCounter):
     min = 0
     max = 100
 
-    # TODO traps for consideration
+    # TODO-1 traps for consideration
     # Tax trap: Loose 10% of your gold.
     # Pickpocket trap: Loose some number of resources
     # Toll trap: Loose 1 gold per room you walk through (everywhere is chapel)

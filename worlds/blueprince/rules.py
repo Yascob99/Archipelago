@@ -16,12 +16,12 @@ def set_all_rules(world: BluePrinceWorld) -> None:
     set_completion_condition(world)
 
 
-# TODO implement entrance rules.
+# TODO-0 implement entrance rules.
 def set_all_entrance_rules(world: BluePrinceWorld) -> None:
     {}
 
 
-# TODO implement location rules.
+# TODO-0 implement location rules.
 def set_all_location_rules(world: BluePrinceWorld) -> None:
     {}
 
