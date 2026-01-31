@@ -83,39 +83,56 @@ class FillerItemDistribution(OptionCounter):
     min = 0
     max = 100
 
-    valid_keys = [
-        "extra_allowance",
-        "extra_allowance_1",
-        "extra_allowance_2",
-        "extra_coins",
-        "extra_coins_1",
-        "extra_coins_2",
-        "extra_coins_5",
-        "extra_keys",
-        "extra_keys_1",
-        "extra_keys_2",
-        "extra_keys_3",
-        "extra_gems",
-        "extra_gems_1",
-        "extra_gems_2",
-        "extra_steps",
-        "extra_steps_1",
-        "extra_steps_2",
-        "extra_steps_5",
-        "extra_dice",
-        "extra_dice_1",
-        "extra_dice_2",
-        "extra_dice_4",
-        "extra_stars",
-        "extra_stars_1",
-        "extra_stars_2",
-        "extra_stars_5",
-        "extra_fruit",
-        "extra_fruit_apple",
-        "extra_fruit_banana",
-        "extra_fruit_orange",
-        "nothing",
-    ]
+    default = {
+        "extra_allowance": 50,
+        "extra_allowance_1": 0,
+        "extra_allowance_2": 0,
+        "extra_coins": 50,
+        "extra_coins_1": 0,
+        "extra_coins_2": 0,
+        "extra_coins_5": 0,
+        "extra_dice": 50,
+        "extra_dice_1": 0,
+        "extra_dice_2": 0,
+        "extra_dice_4": 0,
+        "extra_fruit": 50,
+        "extra_fruit_apple": 0,
+        "extra_fruit_banana": 0,
+        "extra_fruit_orange": 0,
+        "extra_gems": 50,
+        "extra_gems_1": 0,
+        "extra_gems_2": 0,
+        "extra_keys": 50,
+        "extra_keys_1": 0,
+        "extra_keys_2": 0,
+        "extra_keys_3": 0,
+        "extra_stars": 50,
+        "extra_stars_1": 0,
+        "extra_stars_2": 0,
+        "extra_stars_5": 0,
+        "extra_starting_dice": 0,
+        "extra_starting_dice_1": 0,
+        "extra_starting_dice_2": 0,
+        "extra_starting_gems": 0,
+        "extra_starting_gems_1": 0,
+        "extra_starting_gems_2": 0,
+        "extra_starting_key": 0,
+        "extra_starting_key_1": 0,
+        "extra_starting_key_2": 0,
+        "extra_starting_luck": 0,
+        "extra_starting_luck_1": 0,
+        "extra_starting_luck_2": 0,
+        "extra_starting_steps": 0,
+        "extra_starting_steps_5": 0,
+        "extra_starting_steps_10": 0,
+        "extra_steps": 50,
+        "extra_steps_1": 0,
+        "extra_steps_2": 0,
+        "extra_steps_5": 0,
+        "nothing": 50,
+    }
+
+    valid_keys = default.keys()
 
 
 class TrapTypeDistribution(OptionCounter):
@@ -139,12 +156,19 @@ class TrapTypeDistribution(OptionCounter):
     min = 0
     max = 100
 
+    # TODO traps for consideration
+    # Tax trap: Loose 10% of your gold.
+    # Pickpocket trap: Loose some number of resources
+    # Toll trap: Loose 1 gold per room you walk through (everywhere is chapel)
+
     default = {
         "freeze_traps": 50,
         "step_traps": 50,
         "step_traps_1": 0,
         "step_traps_2": 0,
         "step_traps_5": 0,
+        "step_traps_set_to_1": 50,
+        "step_traps_set_to_10": 50,
         "item_traps": 50,
         "star_traps": 50,
         "star_traps_1": 0,

@@ -24,3 +24,12 @@ ROOM_LAYOUT_TYPE_X = "room_layout_type_x"
 
 # room locaiton type key is a key used to set if a room is from the outer rooms
 OUTER_ROOM_KEY = "is_outer_room"
+
+
+ITEM_ELEMENT_INDEX_KEY = "item_element_index"
+# Used to
+NO_ITEM_ELEMENT_INDEX = -1
+
+# Key of the item ID in the item data table.
+ITEM_ID_KEY = "item_id"
+ITEM_ITEM_CLASSIFICATION_KEY = "item_classification"

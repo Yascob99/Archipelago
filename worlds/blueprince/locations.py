@@ -6,7 +6,7 @@ from BaseClasses import ItemClassification, Location
 
 from . import items
 
-from .rooms import rooms
+from .data_rooms import rooms
 
 if TYPE_CHECKING:
     from .world import BluePrinceWorld
@@ -16,6 +16,11 @@ LOCATION_NAME_TO_ID = {
     "Entrance Hall East Vase": 0,
     "Entrance Hall West Vase": 1,
     # TODO add location map
+    # LOCAITONS
+    # First time entering a room
+    # first time picking up a unique item
+    # Nth time opening a trunk.
+    # Vanilla room unlocks.
 }
 
 
@@ -24,10 +29,7 @@ class BluePrinceLocation(Location):
 
 
 def get_location_names_with_ids(location_names: list[str]) -> dict[str, int | None]:
-    return {
-        location_name: LOCATION_NAME_TO_ID[location_name]
-        for location_name in location_names
-    }
+    return {location_name: LOCATION_NAME_TO_ID[location_name] for location_name in location_names}
 
 
 def create_all_locations(world: BluePrinceWorld) -> None:
@@ -39,9 +41,7 @@ def create_regular_locations(world: BluePrinceWorld) -> None:
 
     # TODO create locations
     bottom_right_room = world.get_region("Entrance Hall")
-    bottom_right_room_locations = get_location_names_with_ids(
-        ["Entrance Hall East Vase", "Entrance Hall West Vase"]
-    )
+    bottom_right_room_locations = get_location_names_with_ids(["Entrance Hall East Vase", "Entrance Hall West Vase"])
     bottom_right_room.add_locations(bottom_right_room_locations, BluePrinceLocation)
 
 
@@ -53,10 +53,7 @@ def create_events(world: BluePrinceWorld) -> None:
     atelier = world.get_region("The Atelier")
 
     # Set Victory as entering antechamber
-    if (
-        world.options.goal_type.value
-        == BluePrinceWorld.options.goal_type.option_antechamber
-    ):
+    if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_antechamber:
         antechamber.add_event(
             "Entered The Antechamber",
             "Victory",
@@ -74,10 +71,7 @@ def create_events(world: BluePrinceWorld) -> None:
         )
 
     # Set Victory as opening X Sanctums.
-    if (
-        world.options.goal_type.value
-        == BluePrinceWorld.options.goal_type.option_sanctum
-    ):
+    if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_sanctum:
         # Generate the necessary events for the solve count.
         for region in [
             "Sanctum 1",
@@ -100,9 +94,7 @@ def create_events(world: BluePrinceWorld) -> None:
         campsite.add_event(
             "Solved Sanctums",
             "Victory",
-            rule=lambda state: state.has(
-                "Sanctum Solve", world.player, world.options.goal_sanctum_solves.value
-            ),
+            rule=lambda state: state.has("Sanctum Solve", world.player, world.options.goal_sanctum_solves.value),
             location_type=BluePrinceLocation,
             item_type=items.BluePrinceItem,
         )
@@ -117,10 +109,7 @@ def create_events(world: BluePrinceWorld) -> None:
         )
 
     # Set Victory as entering the atelier and reading the blue prints.
-    if (
-        world.options.goal_type.value
-        == BluePrinceWorld.options.goal_type.option_blueprints
-    ):
+    if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_blueprints:
 
         atelier.add_event(
             "Read The Blue Prints",

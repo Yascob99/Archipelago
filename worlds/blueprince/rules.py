@@ -28,6 +28,4 @@ def set_all_location_rules(world: BluePrinceWorld) -> None:
 
 def set_completion_condition(world: BluePrinceWorld) -> None:
 
-    world.multiworld.completion_condition[world.player] = lambda state: state.has(
-        "Victory", world.player
-    )
+    world.multiworld.completion_condition[world.player] = lambda state: state.has("Victory", world.player)
