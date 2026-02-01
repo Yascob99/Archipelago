@@ -12,7 +12,6 @@ if TYPE_CHECKING:
     from .world import BluePrinceWorld
 
 
-# TODO-1 add atelier
 def create_and_connect_regions(world: BluePrinceWorld) -> None:
 
     ##################
@@ -68,6 +67,7 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     tunnel_area_post_candle_door = Region("Tunnel Area Past Candle Door", world.player, world.multiworld)
     tunnel_area_post_sealed_door = Region("Tunnel Area Past Sealed Door", world.player, world.multiworld)
     tunnel_area_post_blue_door = Region("Tunnel Area Past Blue Door", world.player, world.multiworld)
+    atelier = Region("The Atelier", world.player, world.multiworld)
 
     regions = [
         abandoned_mine,
@@ -104,7 +104,6 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
         tunnel_area_entrance,
         west_path,
         outer_room,
-        gemstone_cavern,
         tunnel_area_post_crates,
         tunnel_area_post_normal_locked_door,
         tunnel_area_post_basement_key_door,
@@ -114,6 +113,7 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
         tunnel_area_post_candle_door,
         tunnel_area_post_sealed_door,
         tunnel_area_post_blue_door,
+        atelier,
     ]
 
     for k, v in rooms.items():
@@ -128,12 +128,13 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     # Get regions I am going to need later.
     tomb = world.get_region("Tomb")
     garage = world.get_region("Garage")
-    foundation = world.get_region("Foundation")
+    foundation = world.get_region("The Foundation")
 
     # Go through the rooms and connect them to the outer room/campsite (starting area)
     for k, v in rooms.items():
+        room = world.get_region(k)
+
         if v[OUTER_ROOM_KEY]:
-            room = world.get_region(k)
 
             # Connect outer room only rooms to outer room.
             outer_room.connect(
@@ -308,7 +309,7 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     )
     excavation_tunnel.connect(
         reservoir_fountain_side,
-        "Reservoir Fountain Side To Excavation Tunnel",
+        "Excavation Tunnel To Reservoir Fountain Side",
     )
     reservoir_fountain_side.connect(
         excavation_tunnel,
@@ -412,25 +413,31 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     reservoir_gear_side.connect(
         safehouse,
         "Reservoir Gear Side To Safehouse",
-        lambda state: (state.has("") or True),
+        lambda state: (True or state.has("")),
     )  # Pump Room & Fountain Side Access. (take fountain side to gear side, lower again, and make it back down on gear side.)
     reservoir_gear_side.connect(
         reservoir_bottom,
         "Reservoir Gear Side To Reservoir Bottom",
-        lambda state: (state.has("") or True),
+        lambda state: (True or state.has("")),
     )  # Pump Room and boiler room (both this and safehouse require ability to get to gear side NOT through well side.)
     rotating_gear.connect(
         the_underpass,
         "Rotating Gear To Underpass",
-        lambda state: (state.has("") or True),
+        lambda state: (True or state.has("")),
     )  # Require Dual side access
     rotating_gear.connect(
         abandoned_mine,
         "Rotating Gear To Abandoned Mine",
-        lambda state: (state.has("") or True),
+        lambda state: (True or state.has("")),
     )
     reservoir_fountain_side.connect(
         reservoir_gear_side,
         "Reservoir Fountain Side To Reservoir Gear Side",
-        lambda state: (state.has("") or True),
+        lambda state: (True or state.has("")),
     )  # Pump Room
+
+    outer_room.connect(
+        atelier,
+        "Outer Room To Atelier",
+        lambda state: state.has("Secret Passage", world.player) and state.has("Watering Can", world.player),
+    )  # Needs

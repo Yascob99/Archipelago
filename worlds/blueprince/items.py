@@ -50,25 +50,29 @@ ITEM_NAME_TO_ID = (
         "Extra Keys 2": 10602,
         "Extra Keys 3": 10603,
         #
-        "Extra Starting Dice 1": 10701,
-        "Extra Starting Dice 2": 10702,
+        "Extra Steps 1": 10701,
+        "Extra Steps 2": 10702,
+        "Extra Steps 5": 10703,
         #
-        "Extra Starting Gems 1": 10801,
-        "Extra Starting Gems 2": 10802,
+        "Extra Starting Dice 1": 10801,
+        "Extra Starting Dice 2": 10802,
         #
-        "Extra Starting Key 1": 10901,
-        "Extra Starting Key 2": 10902,
+        "Extra Starting Gems 1": 10901,
+        "Extra Starting Gems 2": 10902,
         #
-        "Extra Starting Luck 1": 11001,
-        "Extra Starting Luck 2": 11002,
+        "Extra Starting Key 1": 11001,
+        "Extra Starting Key 2": 11002,
         #
-        "Extra Starting Steps 1": 11101,
-        "Extra Starting Steps 2": 11102,
-        "Extra Starting Steps 5": 11103,
+        "Extra Starting Luck 1": 11101,
+        "Extra Starting Luck 2": 11102,
         #
-        "Extra Stars 1": 11201,
-        "Extra Stars 2": 11202,
-        "Extra Stars 5": 11203,
+        "Extra Starting Steps 1": 11201,
+        "Extra Starting Steps 2": 11202,
+        "Extra Starting Steps 5": 11203,
+        #
+        "Extra Stars 1": 11301,
+        "Extra Stars 2": 11302,
+        "Extra Stars 5": 11303,
         #
         # Traps
         #
@@ -136,6 +140,10 @@ DEFAULT_ITEM_CLASSIFICATIONS = (
         "Extra Keys 1": ItemClassification.filler,
         "Extra Keys 2": ItemClassification.filler,
         "Extra Keys 3": ItemClassification.filler,
+        #
+        "Extra Steps 1": ItemClassification.filler,
+        "Extra Steps 2": ItemClassification.filler,
+        "Extra Steps 5": ItemClassification.filler,
         #
         "Extra Starting Dice 1": ItemClassification.filler,
         "Extra Starting Dice 2": ItemClassification.filler,
@@ -342,11 +350,11 @@ def get_random_filler_item_name(world: BluePrinceWorld) -> str:
 
             case "extra_fruit":
                 if count < 20:
-                    return "Extra Fruit Orange"
+                    return "Extra Fruits Orange"
                 elif count < 50:
-                    return "Extra Fruit Banana"
+                    return "Extra Fruits Banana"
                 else:
-                    return "Extra Fruit Apple"
+                    return "Extra Fruits Apple"
 
             case "extra_gems":
                 if count < 30:
@@ -424,7 +432,7 @@ def create_all_items(world: BluePrinceWorld) -> None:
     itempool += [world.create_item(k) for k in all_items_excluding_upgrade_items.keys()]
 
     # Create items for the rooms and either precollect them, or add them to the inventory
-    for k, v in rooms:
+    for k, v in rooms.items():
         if k in core_rooms.keys():
             continue
 

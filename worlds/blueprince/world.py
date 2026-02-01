@@ -34,7 +34,7 @@ class BluePrinceWorld(World):
     item_name_to_id = items.ITEM_NAME_TO_ID
 
     # Technically, Simon starts in the Entrance Hall, but for lore reasons, Starting at The Campsite is also acceptable, and is not a "room"
-    origin_region_name = "The Campsite"
+    origin_region_name = "Campsite"
 
     # # Our world class must have certain functions ("steps") that get called during generation.
     # # The main ones are: create_regions, set_rules, create_items.
@@ -49,7 +49,7 @@ class BluePrinceWorld(World):
     def create_items(self) -> None:
         items.create_all_items(self)
 
-    def create_item(self, name: str) -> items.APQuestItem:
+    def create_item(self, name: str) -> items.BluePrinceItem:
         return items.create_item_with_correct_classification(self, name)
 
     def get_filler_item_name(self) -> str:

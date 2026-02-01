@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING
 
 from BaseClasses import ItemClassification, Location
 
+from .options import GoalType
+
 from . import items
 from .constants import *
 
@@ -56,13 +58,13 @@ def create_all_locations(world: BluePrinceWorld) -> None:
 
 def create_regular_locations(world: BluePrinceWorld) -> None:
 
-    campsite = world.get_region("The Campsite")  # For Sanctum Solves Victory.
+    campsite = world.get_region("Campsite")  # For Sanctum Solves Victory.
 
     # Iterate through the campsite and add locations for all items.
     for k, v in (showroom_items | armory_items | other_items).items():
         # TODO-2 this could be a comprehension, but this works for now.
         location_key = f"{k} First Pickup"
-        locations = get_location_names_with_ids(location_key)
+        locations = get_location_names_with_ids([location_key])
         campsite.add_locations(locations, BluePrinceLocation)
 
     for room_key, v in rooms.items():
@@ -70,7 +72,7 @@ def create_regular_locations(world: BluePrinceWorld) -> None:
 
         # Add fist room entrance
         location_key = f"{room_key} First Entering"
-        locations = get_location_names_with_ids(location_key)
+        locations = get_location_names_with_ids([location_key])
         room.add_locations(locations, BluePrinceLocation)
         # Add Nth locked trunk open
 
@@ -78,37 +80,38 @@ def create_regular_locations(world: BluePrinceWorld) -> None:
             if v[ROOM_CHEST_SPOT_COUNT] > 0:
                 # TODO-2 this could be a comprehension, but this works for now.
                 location_key = f"{room_key} Locked Trunk {idx}"
-                locations = get_location_names_with_ids(location_key)
+                locations = get_location_names_with_ids([location_key])
                 room.add_locations(locations, BluePrinceLocation)
 
 
 def create_events(world: BluePrinceWorld) -> None:
-    campsite = world.get_region("The Campsite")  # For Sanctum Solves Victory.
-    antechamber = world.get_region("The Antechamber")
+
+    campsite = world.get_region("Campsite")  # For Sanctum Solves Victory.
+    antechamber = world.get_region("Antechamber")
     room_46 = world.get_region("Room 46")
     throne_room = world.get_region("Throne Room")
     atelier = world.get_region("The Atelier")
 
     # Set Victory as entering antechamber
-    if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_antechamber:
+    if world.options.goal_type.value == GoalType.option_antechamber:
         antechamber.add_event(
-            "Antechamber First Entering",
+            "Antechamber First Entering Victory",
             "Victory",
             location_type=BluePrinceLocation,
             item_type=items.BluePrinceItem,
         )
 
     # Set Victory as reaching room 46
-    if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_room46:
+    if world.options.goal_type.value == GoalType.option_room46:
         room_46.add_event(
-            "Room 46 First Entering",
+            "Room 46 First Entering Victory",
             "Victory",
             location_type=BluePrinceLocation,
             item_type=items.BluePrinceItem,
         )
 
     # Set Victory as opening X Sanctums.
-    if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_sanctum:
+    if world.options.goal_type.value == GoalType.option_sanctum:
         # Generate the necessary events for the solve count.
         for region in [
             "Orinda Aries Sanctum",
@@ -137,7 +140,7 @@ def create_events(world: BluePrinceWorld) -> None:
         )
 
     # Set Victory as ascending to the throne
-    if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_ascend:
+    if world.options.goal_type.value == GoalType.option_ascend:
         throne_room.add_event(
             "Ascended The Throne",
             "Victory",
@@ -146,7 +149,7 @@ def create_events(world: BluePrinceWorld) -> None:
         )
 
     # Set Victory as entering the atelier and reading the blue prints.
-    if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_blueprints:
+    if world.options.goal_type.value == GoalType.option_blueprints:
 
         atelier.add_event(
             "Read The Blue Prints",
