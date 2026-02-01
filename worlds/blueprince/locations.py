@@ -60,7 +60,7 @@ def create_regular_locations(world: BluePrinceWorld) -> None:
 
     # Iterate through the campsite and add locations for all items.
     for k, v in (showroom_items | armory_items | other_items).items():
-        # TODO this could be a comprehension, but this works for now.
+        # TODO-2 this could be a comprehension, but this works for now.
         location_key = f"{k} First Pickup"
         locations = get_location_names_with_ids(location_key)
         campsite.add_locations(locations, BluePrinceLocation)
@@ -76,7 +76,7 @@ def create_regular_locations(world: BluePrinceWorld) -> None:
 
         for idx in range(1, world.options.locked_trunks):
             if v[ROOM_CHEST_SPOT_COUNT] > 0:
-                # TODO this could be a comprehension, but this works for now.
+                # TODO-2 this could be a comprehension, but this works for now.
                 location_key = f"{room_key} Locked Trunk {idx}"
                 locations = get_location_names_with_ids(location_key)
                 room.add_locations(locations, BluePrinceLocation)
@@ -86,7 +86,7 @@ def create_events(world: BluePrinceWorld) -> None:
     campsite = world.get_region("The Campsite")  # For Sanctum Solves Victory.
     antechamber = world.get_region("The Antechamber")
     room_46 = world.get_region("Room 46")
-    throneroom = world.get_region("Throne Room")
+    throne_room = world.get_region("Throne Room")
     atelier = world.get_region("The Atelier")
 
     # Set Victory as entering antechamber
@@ -111,14 +111,14 @@ def create_events(world: BluePrinceWorld) -> None:
     if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_sanctum:
         # Generate the necessary events for the solve count.
         for region in [
-            "Sanctum 1",
-            "Sanctum 2",
-            "Sanctum 3",
-            "Sanctum 4",
-            "Sanctum 5",
-            "Sanctum 6",
-            "Sanctum 7",
-            "Sanctum 8",
+            "Orinda Aries Sanctum",
+            "Fenn Aries Sanctum",
+            "Arch Aries Sanctum",
+            "Eraja Sanctum",
+            "Corarica Sanctum",
+            "Mora Jai Sanctum",
+            "Verra Sanctum",
+            "Nuance Sanctum",
         ]:
             world.get_region(region).add_event(
                 f"Solved {region}",
@@ -138,7 +138,7 @@ def create_events(world: BluePrinceWorld) -> None:
 
     # Set Victory as ascending to the throne
     if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_ascend:
-        throneroom.add_event(
+        throne_room.add_event(
             "Ascended The Throne",
             "Victory",
             location_type=BluePrinceLocation,
@@ -151,6 +151,43 @@ def create_events(world: BluePrinceWorld) -> None:
         atelier.add_event(
             "Read The Blue Prints",
             "Victory",
+            location_type=BluePrinceLocation,
+            item_type=items.BluePrinceItem,
+        )
+
+    # Set access events for the 4 blue flames.
+    world.get_region("Apple Orchard").add_event(
+        "Has Apple Orchard Access",
+        "Apple Orchard Access",
+        location_type=BluePrinceLocation,
+        item_type=items.BluePrinceItem,
+    )
+    world.get_region("Schoolhouse").add_event(
+        "Has School House Access",
+        "School House Access",
+        location_type=BluePrinceLocation,
+        item_type=items.BluePrinceItem,
+    )
+    world.get_region("Hovel").add_event(
+        "Has Hovel Access",
+        "Hovel Access",
+        location_type=BluePrinceLocation,
+        item_type=items.BluePrinceItem,
+    )
+    world.get_region("Gemstone Cavern").add_event(
+        "Has Gemstone Cavern Access",
+        "Gemstone Cavern Access",
+        location_type=BluePrinceLocation,
+        item_type=items.BluePrinceItem,
+    )
+
+    # Chess Piece Access Rules
+    for k, v in rooms.items():
+        if v[ROOM_CHESS_PIECE] == CHESS_PIECE_NONE:
+            continue
+        world.get_region(k).add_event(
+            f"Has {k} Chess Piece",
+            f"Chess Piece {v[ROOM_CHESS_PIECE]}",
             location_type=BluePrinceLocation,
             item_type=items.BluePrinceItem,
         )

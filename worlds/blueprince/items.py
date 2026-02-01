@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from .data_rooms import rooms
-from .data_items import all_items
+from .data_rooms import rooms, core_rooms
+from .data_items import all_items, all_items_excluding_upgrade_items
 from .constants import *
 
 from BaseClasses import Item, ItemClassification
@@ -419,21 +419,20 @@ def create_item_with_correct_classification(world: BluePrinceWorld, name: str) -
 # Create the items For the world
 def create_all_items(world: BluePrinceWorld) -> None:
 
-    # TODO-0 Implement this list
-    # Items that always exist.
-    itempool: list[Item] = [
-        world.create_item("Key"),
-        world.create_item("Sword"),
-        world.create_item("Shield"),
-        world.create_item("Health Upgrade"),
-        world.create_item("Health Upgrade"),
-    ]
+    itempool: list[Item] = []
 
-    # TODO-0 Implement these items.
-    # Create Items Based On Options
-    # if world.options.hammer:
-    #     itempool.append(world.create_item("Hammer"))
+    itempool += [world.create_item(k) for k in all_items_excluding_upgrade_items.keys()]
 
+    # Create items for the rooms and either precollect them, or add them to the inventory
+    for k, v in rooms:
+        if k in core_rooms.keys():
+            continue
+
+        room_item = world.create_item(k)
+        if ENABLE_ROOM_LOGIC:
+            itempool.append(room_item)
+        else:
+            world.push_precollected(room_item)
     #
     # Add Filler Stuff
     #

@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING
 from BaseClasses import Entrance, Region
 
 from .data_rooms import rooms
+from .data_items import sanctum_keys
 from .constants import *
 
 if TYPE_CHECKING:
@@ -18,12 +19,10 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     # CREATE REGIONS #
     ##################
 
-    # Creating a region is as simple as calling the constructor of the Region class.
-
-    # (area off the 9'oclock on the underground map.)
+    # (area off the 9'oclock of the gear on the underground map.)
     abandoned_mine = Region("Abandoned Mine", world.player, world.multiworld)
 
-    # Area to the left of the res not past minecart on map.
+    # Area to the left of the reservoir not past minecart on map.
     excavation_tunnel = Region("Excavation Tunnel", world.player, world.multiworld)
 
     basement = Region("Basement", world.player, world.multiworld)
@@ -59,7 +58,6 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     tunnel_area_entrance = Region("Tunnel Area Entrance", world.player, world.multiworld)
     west_path = Region("West Path", world.player, world.multiworld)
     outer_room = Region("Outer Room", world.player, world.multiworld)
-    gemstone_cavern = Region("Gemstone Cavern", world.player, world.multiworld)
     foundation_elevator = Region("Foundation Elevator", world.player, world.multiworld)
     tunnel_area_post_crates = Region("Tunnel Area Past Crates", world.player, world.multiworld)
     tunnel_area_post_normal_locked_door = Region("Tunnel Area Past Normal Locked Door", world.player, world.multiworld)
@@ -123,8 +121,6 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
 
     world.multiworld.regions += regions
 
-    # For external Connections later
-
     ###################
     # CONNECT REGIONS #
     ###################
@@ -139,19 +135,38 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
         if v[OUTER_ROOM_KEY]:
             room = world.get_region(k)
 
-            # Connect room to outer room if you have that room
-            # TODO-0 Add requirement on shrine and west-path
-            outer_room.connect(room, f"Outer Room To {k}", lambda state: state.has(k, world.player))
+            # Connect outer room only rooms to outer room.
+            outer_room.connect(
+                room,
+                f"Outer Room To {k}",
+                lambda state: state.has(k, world.player),
+            )
         else:
 
-            # TODO-2: This does not take into account that you need to have some level of placement restriction
+            # Connecting rooms to shrine'ed outer room is unnecessary
+            # because the rooms will already be considered to have access via shrines very requirement.
+
             # Connect all other rooms to campsite (entrance hall?) if you have that room unlocked
-            grounds.connect(room, f"Campsite To {k}", lambda state: state.has(k, world.player))
+            grounds.connect(
+                room,
+                f"Campsite To {k}",
+                # TODO-2: This does not take into account that you need to have some level of placement restriction
+                lambda state: state.has(k, world.player),
+            )
 
-    foundation.connect(foundation_elevator, "Foundation To Foundation Elevator")
+    foundation.connect(
+        foundation_elevator,
+        "Foundation To Foundation Elevator",
+    )
 
-    campsite.connect(private_drive, "Campsite To Private Drive")
-    campsite.connect(apple_orchard, "Campsite To Apple Orchard")
+    campsite.connect(
+        private_drive,
+        "Campsite To Private Drive",
+    )
+    campsite.connect(
+        apple_orchard,
+        "Campsite To Apple Orchard",
+    )
     campsite.connect(
         gemstone_cavern,
         "Campsite To Gemstone Cavern",
@@ -166,104 +181,182 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     blakbridge_grotto.connect(
         orindian_ruins,
         "Blackbridge Grotto To Orindian Ruins",
-        lambda state: state.has_all({"Microchip 1", "Microchip 2", "Microchip 3"}, world.player),
+        lambda state: state.has_all({"MICROCHIP 1", "MICROCHIP 2", "MICROCHIP 3"}, world.player),
     )
     grounds.connect(
-        the_precipice, "Grounds To Precipice"
-    )  # TODO-0 Having blue flame elevator access. Requires (1: apple orchard, 2: outer room (school house, hovel), 3: Gemstone Cavern)
+        the_precipice,
+        "Grounds To Precipice",
+        lambda state: state.has_all(
+            {
+                "Apple Orchard Access",
+                "School House Access",
+                "Hovel Access",
+                "Gemstone Cavern Access",
+            },
+            world.player,
+        ),
+    )
     grounds.connect(
         sealed_entrance,
         "Grounds To Sealed Entrance",
-        lambda state: state.has("Powerhammer Access", world.player),
+        lambda state: state.has("Power Hammer", world.player),
     )
     sealed_entrance.connect(
         grounds,
         "Sealed Entrance To Grounds",
-        lambda state: state.has("Powerhammer Access", world.player),
+        lambda state: state.has("Power Hammer", world.player),
     )
     the_precipice.connect(
-        aries_court, "Precipice to Aries Court"
-    )  # TODO-0 (requires solving Castle puzzle, which requires specific room sets.)
+        aries_court,
+        "Precipice to Aries Court",
+        lambda state: state.has_all(
+            {
+                "Chess Piece King",
+                "Chess Piece Queen",
+                "Chess Piece Rook",
+                "Chess Piece Knight",
+                "Chess Piece Bishop",
+                "Chess Piece Pawn",
+            },
+            world.player,
+        ),
+    )
     sealed_entrance.connect(
         basement,
         "Sealed Entrance To Basement",
-        lambda state: state.has("Powerhammer Access", world.player),
+        lambda state: state.has("Power Hammer", world.player),
     )
     basement.connect(
         sealed_entrance,
         "Basement To Sealed Entrance",
-        lambda state: state.has("Powerhammer Access", world.player),
+        lambda state: state.has("Power Hammer", world.player),
     )
-    basement.connect(reservoir_gear_side, "Basement To Reservoir Gear Side")
-    reservoir_gear_side.connect(basement, "Reservoir Gear Side To Basement")
-    reservoir_gear_side.connect(rotating_gear, "Reservoir Gear Side To Rotating Gear")
-    rotating_gear.connect(reservoir_gear_side, "Rotating Gear To Reservoir Gear Side")
-    the_underpass.connect(inner_sanctum, "The Underpass To Inner Sanctum")
+    basement.connect(
+        reservoir_gear_side,
+        "Basement To Reservoir Gear Side",
+    )
+    reservoir_gear_side.connect(
+        basement,
+        "Reservoir Gear Side To Basement",
+    )
+    reservoir_gear_side.connect(
+        rotating_gear,
+        "Reservoir Gear Side To Rotating Gear",
+    )
+    rotating_gear.connect(
+        reservoir_gear_side,
+        "Rotating Gear To Reservoir Gear Side",
+    )
+    the_underpass.connect(
+        inner_sanctum,
+        "The Underpass To Inner Sanctum",
+    )
 
-    # TODO-1 The Sanctum Key lambdas wont work as they dont match the room counts.
+    sanctum_key_names = list(sanctum_keys.keys())
+
     inner_sanctum.connect(
         orinda_aries_sanctum,
         "Inner Sanctum To Orinda Aries Sanctum",
-        lambda state: state.has("Sanctum Key", world.player, 1),
+        lambda state: state.has_from_list_unique(sanctum_key_names, world.player, 1),
     )
     inner_sanctum.connect(
         fenn_aries_sanctum,
         "Inner Sanctum To Fenn Aries Sanctum",
-        lambda state: state.has("Sanctum Key", world.player, 2),
+        lambda state: state.has_from_list_unique(sanctum_key_names, world.player, 2),
     )
     inner_sanctum.connect(
         arch_aries_sanctum,
         "Inner Sanctum To Arch Aries Sanctum",
-        lambda state: state.has("Sanctum Key", world.player, 3),
+        lambda state: state.has_from_list_unique(sanctum_key_names, world.player, 3),
     )
     inner_sanctum.connect(
-        eraja_sanctum, "Inner Sanctum To Eraja Sanctum", lambda state: state.has("Sanctum Key", world.player, 4)
+        eraja_sanctum,
+        "Inner Sanctum To Eraja Sanctum",
+        lambda state: state.has_from_list_unique(sanctum_key_names, world.player, 4),
     )
     inner_sanctum.connect(
-        corarica_sanctum, "Inner Sanctum To Corarica Sanctum", lambda state: state.has("Sanctum Key", world.player, 5)
+        corarica_sanctum,
+        "Inner Sanctum To Corarica Sanctum",
+        lambda state: state.has_from_list_unique(sanctum_key_names, world.player, 5),
     )
     inner_sanctum.connect(
-        mora_jai_sanctum, "Inner Sanctum To Mora Jai Sanctum", lambda state: state.has("Sanctum Key", world.player, 6)
+        mora_jai_sanctum,
+        "Inner Sanctum To Mora Jai Sanctum",
+        lambda state: state.has_from_list_unique(sanctum_key_names, world.player, 6),
     )
     inner_sanctum.connect(
-        verra_sanctum, "Inner Sanctum To Verra Sanctum", lambda state: state.has("Sanctum Key", world.player, 7)
+        verra_sanctum,
+        "Inner Sanctum To Verra Sanctum",
+        lambda state: state.has_from_list_unique(sanctum_key_names, world.player, 7),
     )
     inner_sanctum.connect(
-        nuance_sanctum, "Inner Sanctum To Nuance Sanctum", lambda state: state.has("Sanctum Key", world.player, 8)
+        nuance_sanctum,
+        "Inner Sanctum To Nuance Sanctum",
+        lambda state: state.has_from_list_unique(sanctum_key_names, world.player, 8),
     )
-    abandoned_mine.connect(excavation_tunnel, "Abandoned Mine To Excavation Tunnel")
-    excavation_tunnel.connect(abandoned_mine, "Excavation Tunnel To Abandoned Mine")
-    excavation_tunnel.connect(torch_chamber, "Excavation Tunnel To Torch Chamber")
-    excavation_tunnel.connect(reservoir_fountain_side, "Reservoir Fountain Side To Excavation Tunnel")
-    reservoir_fountain_side.connect(excavation_tunnel, "Reservoir Fountain Side To Excavation Tunnel")
+    abandoned_mine.connect(
+        excavation_tunnel,
+        "Abandoned Mine To Excavation Tunnel",
+    )
+    excavation_tunnel.connect(
+        abandoned_mine,
+        "Excavation Tunnel To Abandoned Mine",
+    )
+    excavation_tunnel.connect(
+        torch_chamber,
+        "Excavation Tunnel To Torch Chamber",
+    )
+    excavation_tunnel.connect(
+        reservoir_fountain_side,
+        "Reservoir Fountain Side To Excavation Tunnel",
+    )
+    reservoir_fountain_side.connect(
+        excavation_tunnel,
+        "Reservoir Fountain Side To Excavation Tunnel",
+    )
     the_well.connect(
         reservoir_fountain_side,
         "Well To Reservoir Fountain Side",
-        lambda state: state.has("Pump Room", world.player) and state.has("Basement Key", world.player),
+        lambda state: state.has("Pump Room", world.player) and state.has("BASEMENT KEY", world.player),
     )
 
     west_path.connect(
         grounds,
         "West Path To Grounds",
+    )
+    tomb.connect(
+        catacombs,
+        "Tomb to Catacombs",
+    )
+    catacombs.connect(
+        excavation_tunnel,
+        "Catacombs to Excavation Tunnel",
+    )
+    west_path.connect(
+        outer_room,
+        "West Path To Outer Room",
+    )
+    garage.connect(
+        west_path,
+        "Garage To West Path",
         lambda state: state.has("Garage", world.player)
         and (state.has("Utility Closet", world.player) or state.has("Boiler Room", world.player)),
     )
-    tomb.connect(catacombs, "Tomb to Catacombs")
-    catacombs.connect(excavation_tunnel, "Catacombs to Excavation Tunnel")
-    west_path.connect(outer_room, "West Path To Outer Room")
-    garage.connect(west_path, "Garage To West Path")
     foundation_elevator.connect(
         basement,
         "Foundation Elevator To Basement",
-        lambda state: state.has("The Foundation", world.player) and state.has("Basement Key", world.player),
+        lambda state: state.has("The Foundation", world.player) and state.has("BASEMENT KEY", world.player),
     )
     torch_chamber.connect(
         the_precipice,
         "Torch Chamber To Precipice",
-        lambda state: state.has("Burning Glass Access", world.player) and state.has("Torch Access", world.player),
+        lambda state: state.has("Burning Glass Access", world.player) and state.has("TORCH", world.player),
     )
 
-    grounds.connect(tunnel_area_entrance, "Grounds To Tunnel Area Entrance")
+    grounds.connect(
+        tunnel_area_entrance,
+        "Grounds To Tunnel Area Entrance",
+    )
     tunnel_area_entrance.connect(
         tunnel_area_post_crates,
         "Tunnel Area Entrance To Tunnel Area Post Crates",
@@ -273,22 +366,22 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     tunnel_area_post_crates.connect(
         tunnel_area_post_normal_locked_door,
         "Tunnel Area Post Crates to Tunnel Area Post Normal Locked Door",
-        lambda state: state.has("Normal Keys", world.player),
+        # lambda state: state.has("Normal Keys", world.player),
     )
     tunnel_area_post_normal_locked_door.connect(
         tunnel_area_post_basement_key_door,
         "Tunnel Area Post Normal Locked Door to Tunnel Area Post Basement Key",
-        lambda state: state.has("Basement Key", world.player),
+        lambda state: state.has("BASEMENT KEY", world.player),
     )
     tunnel_area_post_basement_key_door.connect(
         tunnel_area_post_security_door,
         "Tunnel Area Post Basement Key to Tunnel Area Post Security Door",
-        lambda state: state.has("Security Key", world.player),
+        lambda state: state.has("KEYCARD", world.player),
     )
     tunnel_area_post_security_door.connect(
         tunnel_area_post_weak_wall,
         "Tunnel Area Post Security Door to Tunnel Area Post Weak Wall",
-        lambda state: state.has("Powerhammer Access", world.player),
+        lambda state: state.has("Power Hammer", world.player),
     )
     tunnel_area_post_weak_wall.connect(
         tunnel_area_post_red_door,
@@ -298,29 +391,46 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     tunnel_area_post_red_door.connect(
         tunnel_area_post_candle_door,
         "Tunnel Area Post Red Door to Tunnel Area Post Candle Door",
-        lambda state: state.has("Torch Access", world.player) or state.has("Burning Glass Access", world.player),
+        lambda state: state.has("TORCH", world.player) or state.has("Burning Glass", world.player),
     )
     tunnel_area_post_candle_door.connect(
         tunnel_area_post_sealed_door,
         "Tunnel Area Post Candle Door to Tunnel Area Post Sealed Door",
-        lambda state: state.has_all({"Microchip 1", "Microchip 2", "Microchip 3"}, world.player),
+        lambda state: state.has_all({"MICROCHIP 1", "MICROCHIP 2", "MICROCHIP 3"}, world.player),
     )
     tunnel_area_post_sealed_door.connect(
         tunnel_area_post_blue_door,
         "Tunnel Area Post Sealed Door to Tunnel Area Post Blue Door",
         lambda state: state.has("Blue Door Access", world.player),
+        # No item called blue door access RN.
     )
 
     ###################################
     # COMPLEX REGION CONNECTION LOGIC #
     ###################################
-    # TODO-0 (These connections have quite complex logic relating to the underground and railcar puzzles.)
+    # TODO-0 (These connections have quite complex logic relating to the underground and minecart puzzles.)
     reservoir_gear_side.connect(
-        safehouse, "Reservoir Gear Side To Safehouse"
+        safehouse,
+        "Reservoir Gear Side To Safehouse",
+        lambda state: (state.has("") or True),
     )  # Pump Room & Fountain Side Access. (take fountain side to gear side, lower again, and make it back down on gear side.)
     reservoir_gear_side.connect(
-        reservoir_bottom, "Reservoir Gear Side To Reservoir Bottom"
+        reservoir_bottom,
+        "Reservoir Gear Side To Reservoir Bottom",
+        lambda state: (state.has("") or True),
     )  # Pump Room and boiler room (both this and safehouse require ability to get to gear side NOT through well side.)
-    rotating_gear.connect(the_underpass, "Rotating Gear To Underpass")  # Require Dual side access
-    rotating_gear.connect(abandoned_mine, "Rotating Gear To Abandoned Mine")
-    reservoir_fountain_side.connect(reservoir_gear_side, "Reservoir Fountain Side To Reservoir Gear Side")  # Pump Room
+    rotating_gear.connect(
+        the_underpass,
+        "Rotating Gear To Underpass",
+        lambda state: (state.has("") or True),
+    )  # Require Dual side access
+    rotating_gear.connect(
+        abandoned_mine,
+        "Rotating Gear To Abandoned Mine",
+        lambda state: (state.has("") or True),
+    )
+    reservoir_fountain_side.connect(
+        reservoir_gear_side,
+        "Reservoir Fountain Side To Reservoir Gear Side",
+        lambda state: (state.has("") or True),
+    )  # Pump Room

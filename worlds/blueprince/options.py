@@ -286,6 +286,7 @@ class BluePrinceOptions(PerGameCommonOptions):
     # Development Options
     room_draft_sanity: RoomDraftSanity
     item_sanity: ItemSanity
+    locked_trunks: LockedTrunkCount
     # upgrade_disk_sanity: UpgradeDiskSanity
 
     # Extra item options.
@@ -310,6 +311,7 @@ option_groups = [
         [
             RoomDraftSanity,
             ItemSanity,
+            LockedTrunkCount,
             # UpgradeDiskSanity
         ],
     ),
@@ -330,11 +332,12 @@ option_groups = [
 
 # Finally, we can define some option presets if we want the player to be able to quickly choose a specific "mode".
 option_presets = {
-    # Room 46 Extra Drafting is to be a "vanilla" playthrough to reach room 46,
+    # Room 46 Extra Drafting is to be a "vanilla" play through to reach room 46,
     # with no death link, with the goal set to room 64, and with no extra items or traps added to the pool.
     "Room 46 Extra Drafting": {
         "room_draft_sanity": True,
         "item_sanity": True,
+        "locked_trunks": 2,
         # "upgrade_disk_sanity": True,
         "filler_item_distribution": {"nothing": 100},
         "trap_type_distribution": {},

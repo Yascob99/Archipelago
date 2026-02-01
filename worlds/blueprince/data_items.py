@@ -430,4 +430,5 @@ upgrade_items = {
 }
 
 
-all_items = upgrade_disks | keys | showroom_items | armory_items | other_items | upgrade_items
+all_items_excluding_upgrade_items = upgrade_disks | keys | showroom_items | armory_items | other_items
+all_items = all_items_excluding_upgrade_items | upgrade_items

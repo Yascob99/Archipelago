@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from .data_rooms import rooms
+
 from BaseClasses import CollectionState
 from worlds.generic.Rules import add_rule, set_rule
 
@@ -16,13 +18,13 @@ def set_all_rules(world: BluePrinceWorld) -> None:
     set_completion_condition(world)
 
 
-# TODO-0 implement entrance rules.
 def set_all_entrance_rules(world: BluePrinceWorld) -> None:
+    # These are unnecessary as entrance rules are set in the region connection phase.
     {}
 
 
-# TODO-0 implement location rules.
 def set_all_location_rules(world: BluePrinceWorld) -> None:
+    # At this time, there are no location rules as the region rules handle most logic.
     {}
 
 

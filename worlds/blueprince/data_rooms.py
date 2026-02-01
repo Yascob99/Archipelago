@@ -12,6 +12,7 @@ core_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_X,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Room 46": {
         ROOM_ITEM_ID_KEY: 46,
@@ -20,6 +21,7 @@ core_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Entrance Hall": {
         ROOM_ITEM_ID_KEY: 2,
@@ -28,6 +30,7 @@ core_rooms = {
         ROOM_CHEST_SPOT_COUNT: 2,  # EXCEPTION: REQUIRES OBSERVATORY
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_X,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 }
 
@@ -39,6 +42,7 @@ classrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Classroom 2": {
         ROOM_ITEM_ID_KEY: 102,
@@ -47,6 +51,7 @@ classrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Classroom 3": {
         ROOM_ITEM_ID_KEY: 103,
@@ -55,6 +60,7 @@ classrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Classroom 4": {
         ROOM_ITEM_ID_KEY: 104,
@@ -63,6 +69,7 @@ classrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Classroom 5": {
         ROOM_ITEM_ID_KEY: 105,
@@ -71,6 +78,7 @@ classrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Classroom 6": {
         ROOM_ITEM_ID_KEY: 106,
@@ -79,6 +87,7 @@ classrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Classroom 7": {
         ROOM_ITEM_ID_KEY: 107,
@@ -87,6 +96,7 @@ classrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Classroom 8": {
         ROOM_ITEM_ID_KEY: 108,
@@ -95,6 +105,7 @@ classrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Classroom Exam": {
         ROOM_ITEM_ID_KEY: 109,
@@ -103,6 +114,7 @@ classrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 }
 
@@ -114,6 +126,7 @@ secret_blue = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "The Kennel": {
         ROOM_ITEM_ID_KEY: 202,
@@ -122,6 +135,7 @@ secret_blue = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Clock Tower": {
         ROOM_ITEM_ID_KEY: 203,
@@ -130,6 +144,7 @@ secret_blue = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_ROOK,
     },
     "Planetarium": {
         ROOM_ITEM_ID_KEY: 204,
@@ -138,6 +153,7 @@ secret_blue = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Mechanarium": {
         ROOM_ITEM_ID_KEY: 205,
@@ -146,6 +162,7 @@ secret_blue = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,  # This is the most restrictive state of the mechanarium.
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Toolshed": {
         ROOM_ITEM_ID_KEY: 206,
@@ -154,6 +171,7 @@ secret_blue = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: True,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Shelter": {
         ROOM_ITEM_ID_KEY: 207,
@@ -162,6 +180,7 @@ secret_blue = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: True,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Schoolhouse": {
         ROOM_ITEM_ID_KEY: 208,
@@ -170,6 +189,7 @@ secret_blue = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: True,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Shrine": {
         ROOM_ITEM_ID_KEY: 209,
@@ -178,6 +198,7 @@ secret_blue = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: True,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 } | classrooms
 
@@ -190,6 +211,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Spare Room": {
         ROOM_ITEM_ID_KEY: 3,
@@ -198,6 +220,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 0,  # Technically has SOME SOMETIMES, but not for all upgrades.
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Rotunda": {
         ROOM_ITEM_ID_KEY: 4,
@@ -206,6 +229,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_X,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Parlor": {
         ROOM_ITEM_ID_KEY: 5,
@@ -214,6 +238,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Billiard Room": {
         ROOM_ITEM_ID_KEY: 6,
@@ -222,6 +247,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Gallery": {
         ROOM_ITEM_ID_KEY: 7,
@@ -230,6 +256,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Room 8": {
         ROOM_ITEM_ID_KEY: 8,
@@ -238,6 +265,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Closet": {
         ROOM_ITEM_ID_KEY: 9,
@@ -246,6 +274,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Walk-In Closet": {
         ROOM_ITEM_ID_KEY: 10,
@@ -254,6 +283,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Attic": {
         ROOM_ITEM_ID_KEY: 11,
@@ -262,6 +292,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_BISHOP,
     },
     "Storeroom": {
         ROOM_ITEM_ID_KEY: 12,
@@ -270,6 +301,7 @@ blue_001_012 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
 }
 blue_013_024 = {
@@ -280,6 +312,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_ROOK,
     },
     "Garage": {
         ROOM_ITEM_ID_KEY: 14,
@@ -288,6 +321,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Music Room": {
         ROOM_ITEM_ID_KEY: 15,
@@ -296,6 +330,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Locker Room": {
         ROOM_ITEM_ID_KEY: 16,
@@ -304,6 +339,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Den": {
         ROOM_ITEM_ID_KEY: 17,
@@ -312,6 +348,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Wine Cellar": {
         ROOM_ITEM_ID_KEY: 18,
@@ -320,6 +357,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Trophy Room": {
         ROOM_ITEM_ID_KEY: 19,
@@ -328,6 +366,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Ballroom": {
         ROOM_ITEM_ID_KEY: 20,
@@ -336,6 +375,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Pantry": {
         ROOM_ITEM_ID_KEY: 21,
@@ -344,6 +384,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Rumpus Room": {
         ROOM_ITEM_ID_KEY: 22,
@@ -352,6 +393,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_BISHOP,
     },
     "Vault": {
         ROOM_ITEM_ID_KEY: 23,
@@ -360,6 +402,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_ROOK,
     },
     "Office": {
         ROOM_ITEM_ID_KEY: 24,
@@ -368,6 +411,7 @@ blue_013_024 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_KING,
     },
 }
 blue_025_036 = {
@@ -378,6 +422,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Study": {
         ROOM_ITEM_ID_KEY: 26,
@@ -386,6 +431,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_QUEEN,
     },
     "Library": {
         ROOM_ITEM_ID_KEY: 27,
@@ -394,6 +440,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Chamber of Mirrors": {
         ROOM_ITEM_ID_KEY: 28,
@@ -402,6 +449,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "The Pool": {
         ROOM_ITEM_ID_KEY: 29,
@@ -410,6 +458,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 1,  # REQUIRES MOUNT HOLLY GIFT SHOP
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Drafting Studio": {
         ROOM_ITEM_ID_KEY: 30,
@@ -418,6 +467,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Utility Closet": {
         ROOM_ITEM_ID_KEY: 31,
@@ -426,6 +476,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Boiler Room": {
         ROOM_ITEM_ID_KEY: 32,
@@ -434,6 +485,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Pump Room": {
         ROOM_ITEM_ID_KEY: 33,
@@ -442,6 +494,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Security": {
         ROOM_ITEM_ID_KEY: 34,
@@ -450,6 +503,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_KNIGHT,
     },
     "Workshop": {
         ROOM_ITEM_ID_KEY: 35,
@@ -458,6 +512,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Laboratory": {
         ROOM_ITEM_ID_KEY: 36,
@@ -466,6 +521,7 @@ blue_025_036 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 }
 blue_037_046 = {
@@ -476,6 +532,7 @@ blue_037_046 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Coat Check": {
         ROOM_ITEM_ID_KEY: 38,
@@ -484,6 +541,7 @@ blue_037_046 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Mail Room": {
         ROOM_ITEM_ID_KEY: 39,
@@ -492,6 +550,7 @@ blue_037_046 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Freezer": {
         ROOM_ITEM_ID_KEY: 40,
@@ -500,6 +559,7 @@ blue_037_046 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Dining Room": {
         ROOM_ITEM_ID_KEY: 41,
@@ -508,6 +568,7 @@ blue_037_046 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Observatory": {
         ROOM_ITEM_ID_KEY: 42,
@@ -516,6 +577,7 @@ blue_037_046 = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_KNIGHT,
     },
     "Conference Room": {
         ROOM_ITEM_ID_KEY: 43,
@@ -524,6 +586,7 @@ blue_037_046 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Aquarium": {
         ROOM_ITEM_ID_KEY: 44,
@@ -532,6 +595,7 @@ blue_037_046 = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 }
 
@@ -545,6 +609,7 @@ bedrooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Hovel": {
         ROOM_ITEM_ID_KEY: 302,
@@ -553,6 +618,7 @@ bedrooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: True,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Bedroom": {
         ROOM_ITEM_ID_KEY: 303,
@@ -561,6 +627,7 @@ bedrooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Boudoir": {
         ROOM_ITEM_ID_KEY: 304,
@@ -569,14 +636,16 @@ bedrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
-    "Guest Befroom": {
+    "Guest Bedroom": {
         ROOM_ITEM_ID_KEY: 305,
         ROOM_ITEM_CLASSIFICATION_KEY: ItemClassification.progression,
         ROOM_ITEM_SPOT_COUNT: 0,
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Nursery": {
         ROOM_ITEM_ID_KEY: 306,
@@ -585,6 +654,7 @@ bedrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Servant's Quarters": {
         ROOM_ITEM_ID_KEY: 307,
@@ -593,6 +663,7 @@ bedrooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Bunk Room": {
         ROOM_ITEM_ID_KEY: 308,
@@ -601,6 +672,7 @@ bedrooms = {
         ROOM_CHEST_SPOT_COUNT: 2,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Her Ladyship's Chambers": {
         ROOM_ITEM_ID_KEY: 309,
@@ -609,6 +681,7 @@ bedrooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_QUEEN,
     },
     "Master Bedroom": {
         ROOM_ITEM_ID_KEY: 310,
@@ -617,6 +690,7 @@ bedrooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 }
 
@@ -628,6 +702,7 @@ hallways = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_X,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Tunnel": {
         ROOM_ITEM_ID_KEY: 402,
@@ -636,6 +711,7 @@ hallways = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Hallway": {
         ROOM_ITEM_ID_KEY: 403,
@@ -644,6 +720,7 @@ hallways = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "West Wing Hall": {
         ROOM_ITEM_ID_KEY: 404,
@@ -652,6 +729,7 @@ hallways = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "East Wing Hall": {
         ROOM_ITEM_ID_KEY: 405,
@@ -660,6 +738,7 @@ hallways = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Corridor": {
         ROOM_ITEM_ID_KEY: 406,
@@ -668,6 +747,7 @@ hallways = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Passageway": {
         ROOM_ITEM_ID_KEY: 407,
@@ -676,6 +756,7 @@ hallways = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_X,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Secret Passage": {
         ROOM_ITEM_ID_KEY: 408,
@@ -684,6 +765,7 @@ hallways = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Foyer": {
         ROOM_ITEM_ID_KEY: 409,
@@ -692,6 +774,7 @@ hallways = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Great Hall": {
         ROOM_ITEM_ID_KEY: 410,
@@ -700,6 +783,7 @@ hallways = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_X,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 }
 
@@ -711,6 +795,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Conservatory": {
         ROOM_ITEM_ID_KEY: 502,
@@ -719,6 +804,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_ROOK,
     },
     "Root Cellar": {
         ROOM_ITEM_ID_KEY: 503,
@@ -727,6 +813,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: True,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Terrace": {
         ROOM_ITEM_ID_KEY: 504,
@@ -735,6 +822,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Patio": {
         ROOM_ITEM_ID_KEY: 505,
@@ -743,6 +831,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Courtyard": {
         ROOM_ITEM_ID_KEY: 506,
@@ -751,6 +840,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Cloister": {
         ROOM_ITEM_ID_KEY: 507,
@@ -759,6 +849,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_X,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Veranda": {
         ROOM_ITEM_ID_KEY: 508,
@@ -767,6 +858,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Greenhouse": {
         ROOM_ITEM_ID_KEY: 509,
@@ -775,6 +867,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Morning Room": {
         ROOM_ITEM_ID_KEY: 510,
@@ -783,6 +876,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Secret Garden": {
         ROOM_ITEM_ID_KEY: 511,
@@ -791,6 +885,7 @@ green_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 }
 
@@ -802,6 +897,7 @@ shops = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Trading Post": {
         ROOM_ITEM_ID_KEY: 602,
@@ -810,6 +906,7 @@ shops = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: True,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Commissary": {
         ROOM_ITEM_ID_KEY: 603,
@@ -818,6 +915,7 @@ shops = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Kitchen": {
         ROOM_ITEM_ID_KEY: 604,
@@ -826,6 +924,7 @@ shops = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Locksmith": {
         ROOM_ITEM_ID_KEY: 605,
@@ -834,6 +933,7 @@ shops = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Showroom": {
         ROOM_ITEM_ID_KEY: 606,
@@ -842,6 +942,7 @@ shops = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_I,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Laundry Room": {
         ROOM_ITEM_ID_KEY: 607,
@@ -850,6 +951,7 @@ shops = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Bookshop": {
         ROOM_ITEM_ID_KEY: 608,
@@ -858,6 +960,7 @@ shops = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_BISHOP,
     },
     "The Armory": {
         ROOM_ITEM_ID_KEY: 609,
@@ -866,6 +969,7 @@ shops = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_KNIGHT,
     },
     "Mount Holly Gift Shop": {
         ROOM_ITEM_ID_KEY: 610,
@@ -874,6 +978,7 @@ shops = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 }
 red_rooms = {
@@ -884,6 +989,7 @@ red_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_PAWN,
     },
     "Closed Exhibit": {
         ROOM_ITEM_ID_KEY: 702,
@@ -892,6 +998,7 @@ red_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Lavatory": {
         ROOM_ITEM_ID_KEY: 703,
@@ -900,6 +1007,7 @@ red_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Chapel": {
         ROOM_ITEM_ID_KEY: 704,
@@ -908,6 +1016,7 @@ red_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_BISHOP,
     },
     "Maids Chamber": {
         ROOM_ITEM_ID_KEY: 705,
@@ -916,6 +1025,7 @@ red_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Archives": {
         ROOM_ITEM_ID_KEY: 706,
@@ -924,6 +1034,7 @@ red_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_X,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Gymnasium": {
         ROOM_ITEM_ID_KEY: 707,
@@ -932,6 +1043,7 @@ red_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Darkroom": {
         ROOM_ITEM_ID_KEY: 708,
@@ -940,6 +1052,7 @@ red_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Weight Room": {
         ROOM_ITEM_ID_KEY: 709,
@@ -948,6 +1061,7 @@ red_rooms = {
         ROOM_CHEST_SPOT_COUNT: 1,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_X,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
     "Furnace": {
         ROOM_ITEM_ID_KEY: 710,
@@ -956,6 +1070,7 @@ red_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 }
 black_rooms = {
@@ -966,6 +1081,7 @@ black_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_J,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_KNIGHT,
     },
     "Throne Room": {
         ROOM_ITEM_ID_KEY: 802,
@@ -974,6 +1090,7 @@ black_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_T,
         OUTER_ROOM_KEY: False,
+        ROOM_CHESS_PIECE: CHESS_PIECE_KING,
     },
     "Tomb": {
         ROOM_ITEM_ID_KEY: 803,
@@ -982,6 +1099,7 @@ black_rooms = {
         ROOM_CHEST_SPOT_COUNT: 0,
         ROOM_LAYOUT_TYPE_KEY: ROOM_LAYOUT_TYPE_D,
         OUTER_ROOM_KEY: True,
+        ROOM_CHESS_PIECE: CHESS_PIECE_NONE,
     },
 }
 

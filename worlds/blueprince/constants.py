@@ -6,6 +6,8 @@ ROOM_ITEM_ID_KEY = "item_id"
 ROOM_ITEM_SPOT_COUNT = "item_spot_count"
 # Defines the key for setting the data in a room's info-dict. Used specifically to define how many chest spots the room can have.
 ROOM_CHEST_SPOT_COUNT = "chest_spot_count"
+# defines the key for setting the data in a room's info-dict. Used specifically to define which chess piece is in a room
+ROOM_CHESS_PIECE = "chess_piece"
 
 
 # Defines the key for setting the data in a room's info-dict. Used specifically to define the general shape of the room for path calculations.
@@ -22,7 +24,7 @@ ROOM_LAYOUT_TYPE_J = "room_layout_type_j"
 ROOM_LAYOUT_TYPE_X = "room_layout_type_x"
 
 
-# room locaiton type key is a key used to set if a room is from the outer rooms
+# room location type key is a key used to set if a room is from the outer rooms
 OUTER_ROOM_KEY = "is_outer_room"
 
 
@@ -35,3 +37,21 @@ NO_ITEM_ELEMENT_INDEX = -1
 ITEM_ID_KEY = "item_id"
 # Key of the item's classification in the item data table.
 ITEM_ITEM_CLASSIFICATION_KEY = "item_classification"
+
+
+CHESS_PIECE_ROOK = "Rook"
+CHESS_PIECE_QUEEN = "Queen"
+CHESS_PIECE_KING = "King"
+CHESS_PIECE_KNIGHT = "Knight"
+CHESS_PIECE_BISHOP = "Bishop"
+CHESS_PIECE_PAWN = "Pawn"
+CHESS_PIECE_NONE = ""
+
+
+#####################
+# CONTROL CONSTANTS #
+#####################
+
+# Enable room logic, when set to true, allows the rooms to be loaded into the world as items to be found.
+# When false, "all rooms" will be available to the player "at the start"
+ENABLE_ROOM_LOGIC = False
