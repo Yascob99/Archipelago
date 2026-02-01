@@ -129,6 +129,8 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     tomb = world.get_region("Tomb")
     garage = world.get_region("Garage")
     foundation = world.get_region("The Foundation")
+    entrance_hall = world.get_region("Entrance Hall")
+    antechamber = world.get_region("Antechamber")
 
     # Go through the rooms and connect them to the outer room/campsite (starting area)
     for k, v in rooms.items():
@@ -148,12 +150,36 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
             # because the rooms will already be considered to have access via shrines very requirement.
 
             # Connect all other rooms to campsite (entrance hall?) if you have that room unlocked
-            grounds.connect(
-                room,
-                f"Campsite To {k}",
-                # TODO-2: This does not take into account that you need to have some level of placement restriction
-                lambda state: state.has(k, world.player),
-            )
+
+            if k == "Antechamber":
+                entrance_hall.connect(
+                    room,
+                    f"Entrance Hall {k}",
+                    # TODO-2: This does not take into account that you need to have some level of placement restriction
+                    lambda state: state.has("Grate Hall", world.player)
+                    or (state.has("Greenhouse", world.player) and state.has("BROKEN LEVER", world.player))
+                    or state.has("Mechanarium", world.player)
+                    or (state.has("Weight Room", world.player) and state.has("Power Hammer", world.player))
+                    or state.has("Secret Garden", world.player)
+                    or (state.has("Secret Garden", world.player) and state.has("Power Hammer", world.player)),
+                )
+            elif k == "Room 46":
+                antechamber.connect(
+                    room,
+                    "Antechamber To Room 46",
+                    # TODO-2: This does not take into account that you need to have some level of placement restriction
+                    lambda state: state.has("North Lever Access", world.player),
+                )
+            elif k == "Entrance Hall":
+                continue
+            else:
+
+                entrance_hall.connect(
+                    room,
+                    f"Entrance Hall {k}",
+                    # TODO-2: This does not take into account that you need to have some level of placement restriction
+                    lambda state: state.has(k, world.player),
+                )
 
     foundation.connect(
         foundation_elevator,
@@ -202,6 +228,8 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
         "Grounds To Sealed Entrance",
         lambda state: state.has("Power Hammer", world.player),
     )
+    grounds.connect(entrance_hall, "Grounds To Entrance Hall")
+
     sealed_entrance.connect(
         grounds,
         "Sealed Entrance To Grounds",

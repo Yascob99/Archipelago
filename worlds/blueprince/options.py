@@ -61,7 +61,7 @@ class LockedTrunkCount(Range):
 
     display_name = "Locked Trunks"
 
-    range_start = 1
+    range_start = 0
     range_end = 100
 
     default = 2

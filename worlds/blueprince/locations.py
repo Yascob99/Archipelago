@@ -76,7 +76,7 @@ def create_regular_locations(world: BluePrinceWorld) -> None:
         room.add_locations(locations, BluePrinceLocation)
         # Add Nth locked trunk open
 
-        for idx in range(1, world.options.locked_trunks):
+        for idx in range(1, world.options.locked_trunks + 1):
             if v[ROOM_CHEST_SPOT_COUNT] > 0:
                 # TODO-2 this could be a comprehension, but this works for now.
                 location_key = f"{room_key} Locked Trunk {idx}"
@@ -180,6 +180,20 @@ def create_events(world: BluePrinceWorld) -> None:
     world.get_region("Gemstone Cavern").add_event(
         "Has Gemstone Cavern Access",
         "Gemstone Cavern Access",
+        location_type=BluePrinceLocation,
+        item_type=items.BluePrinceItem,
+    )
+
+    # Set North Lever Access
+    world.get_region("Inner Sanctum").add_event(
+        "Inner Sanctum North Lever",
+        "North Lever Access",
+        location_type=BluePrinceLocation,
+        item_type=items.BluePrinceItem,
+    )
+    world.get_region("Throne Room").add_event(
+        "Throne Room North Lever",
+        "North Lever Access",
         location_type=BluePrinceLocation,
         item_type=items.BluePrinceItem,
     )
