@@ -5,23 +5,40 @@ from typing import TYPE_CHECKING
 from BaseClasses import ItemClassification, Location
 
 from . import items
+from .constants import *
 
 from .data_rooms import rooms
+from .data_items import showroom_items, armory_items, other_items
 
 if TYPE_CHECKING:
     from .world import BluePrinceWorld
 
+ROOM_MULTIPLIER = 100_000
 
-LOCATION_NAME_TO_ID = {
-    "Entrance Hall East Vase": 0,
-    "Entrance Hall West Vase": 1,
-    # TODO-0 add location map
-    # LOCAITONS
-    # First time entering a room
-    # first time picking up a unique item
-    # Nth time opening a trunk.
-    # Vanilla room unlocks.
-}
+LOCATION_NAME_TO_ID = (
+    {
+        # TODO-1 add locations for other stuff later.
+        # "Entrance Hall East Vase": rooms["Entrance Hall"][ROOM_ITEM_ID_KEY] * ROOM_MULTIPLIER + 0,
+        # "Entrance Hall West Vase": rooms["Entrance Hall"][ROOM_ITEM_ID_KEY] * ROOM_MULTIPLIER + 1,
+    }
+    | {
+        # Create First Entering locations for each room.
+        f"{k} First Entering": v[ROOM_ITEM_ID_KEY] * ROOM_MULTIPLIER
+        for k, v in rooms.items()
+    }
+    | {
+        # Create 100 locked trunk check locations for each room that has the ability to have locked trunks
+        f"{k} Locked Trunk {idx}": v[ROOM_ITEM_ID_KEY] * ROOM_MULTIPLIER + 10_000 + idx
+        for k, v in rooms.items()
+        for idx in range(1, 101)
+        if v[ROOM_CHEST_SPOT_COUNT] > 0
+    }
+    | {
+        # Add First Pickup as locations for the standard "tools".
+        f"{k} First Pickup": v[ITEM_ID_KEY] * ROOM_MULTIPLIER
+        for k, v in (showroom_items | armory_items | other_items).items()
+    }
+)
 
 
 class BluePrinceLocation(Location):
@@ -39,10 +56,30 @@ def create_all_locations(world: BluePrinceWorld) -> None:
 
 def create_regular_locations(world: BluePrinceWorld) -> None:
 
-    # TODO-0 create locations
-    bottom_right_room = world.get_region("Entrance Hall")
-    bottom_right_room_locations = get_location_names_with_ids(["Entrance Hall East Vase", "Entrance Hall West Vase"])
-    bottom_right_room.add_locations(bottom_right_room_locations, BluePrinceLocation)
+    campsite = world.get_region("The Campsite")  # For Sanctum Solves Victory.
+
+    # Iterate through the campsite and add locations for all items.
+    for k, v in (showroom_items | armory_items | other_items).items():
+        # TODO this could be a comprehension, but this works for now.
+        location_key = f"{k} First Pickup"
+        locations = get_location_names_with_ids(location_key)
+        campsite.add_locations(locations, BluePrinceLocation)
+
+    for room_key, v in rooms.items():
+        room = world.get_region(room_key)
+
+        # Add fist room entrance
+        location_key = f"{room_key} First Entering"
+        locations = get_location_names_with_ids(location_key)
+        room.add_locations(locations, BluePrinceLocation)
+        # Add Nth locked trunk open
+
+        for idx in range(1, world.options.locked_trunks):
+            if v[ROOM_CHEST_SPOT_COUNT] > 0:
+                # TODO this could be a comprehension, but this works for now.
+                location_key = f"{room_key} Locked Trunk {idx}"
+                locations = get_location_names_with_ids(location_key)
+                room.add_locations(locations, BluePrinceLocation)
 
 
 def create_events(world: BluePrinceWorld) -> None:
@@ -55,7 +92,7 @@ def create_events(world: BluePrinceWorld) -> None:
     # Set Victory as entering antechamber
     if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_antechamber:
         antechamber.add_event(
-            "Entered The Antechamber",
+            "Antechamber First Entering",
             "Victory",
             location_type=BluePrinceLocation,
             item_type=items.BluePrinceItem,
@@ -64,7 +101,7 @@ def create_events(world: BluePrinceWorld) -> None:
     # Set Victory as reaching room 46
     if world.options.goal_type.value == BluePrinceWorld.options.goal_type.option_room46:
         room_46.add_event(
-            "Room 46 Victory",
+            "Room 46 First Entering",
             "Victory",
             location_type=BluePrinceLocation,
             item_type=items.BluePrinceItem,

@@ -54,6 +54,19 @@ class ItemSanity(Toggle):
 # TODO-2 Document full list of potential checks/locations posted in blue prince thread.
 
 
+class LockedTrunkCount(Range):
+    """
+    This is the number of locked trunks per room that need to be opened for archipelago items.
+    """
+
+    display_name = "Locked Trunks"
+
+    range_start = 1
+    range_end = 100
+
+    default = 2
+
+
 # Filler Options.
 class FillerItemDistribution(OptionCounter):
     """

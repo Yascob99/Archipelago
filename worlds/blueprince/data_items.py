@@ -206,6 +206,21 @@ keys = {
         ITEM_ID_KEY: 1017,
         ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.progression,
     },
+    "MICROCHIP 1": {
+        ITEM_ELEMENT_INDEX_KEY: 39,
+        ITEM_ID_KEY: 1039,
+        ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.progression,
+    },
+    "MICROCHIP 2": {
+        ITEM_ELEMENT_INDEX_KEY: 40,
+        ITEM_ID_KEY: 1040,
+        ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.progression,
+    },
+    "MICROCHIP 3": {
+        ITEM_ELEMENT_INDEX_KEY: 41,
+        ITEM_ID_KEY: 1041,
+        ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.progression,
+    },
 } | sanctum_keys
 
 showroom_items = {
@@ -359,26 +374,6 @@ other_items = {
         ITEM_ID_KEY: 1032,
         ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.progression,
     },
-    "ALLOWANCE TOKENS": {
-        ITEM_ELEMENT_INDEX_KEY: NO_ITEM_ELEMENT_INDEX,
-        ITEM_ID_KEY: 7001,
-        ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.useful,
-    },
-    "MICROCHIP 1": {
-        ITEM_ELEMENT_INDEX_KEY: 39,
-        ITEM_ID_KEY: 1039,
-        ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.progression,
-    },
-    "MICROCHIP 2": {
-        ITEM_ELEMENT_INDEX_KEY: 40,
-        ITEM_ID_KEY: 1040,
-        ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.progression,
-    },
-    "MICROCHIP 3": {
-        ITEM_ELEMENT_INDEX_KEY: 41,
-        ITEM_ID_KEY: 1041,
-        ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.progression,
-    },
     "LUNCH BOX": {
         ITEM_ELEMENT_INDEX_KEY: 43,
         ITEM_ID_KEY: 1043,
@@ -414,9 +409,17 @@ other_items = {
         ITEM_ID_KEY: 1005,
         ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.useful,
     },
+}
+
+upgrade_items = {
     "IVORY DICE": {
         ITEM_ELEMENT_INDEX_KEY: 8,
         ITEM_ID_KEY: 1008,
+        ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.useful,
+    },
+    "ALLOWANCE TOKENS": {
+        ITEM_ELEMENT_INDEX_KEY: NO_ITEM_ELEMENT_INDEX,
+        ITEM_ID_KEY: 7001,
         ITEM_ITEM_CLASSIFICATION_KEY: ItemClassification.useful,
     },
     "CUPCAKE MESH": {
@@ -427,4 +430,4 @@ other_items = {
 }
 
 
-all_items = upgrade_disks | keys | showroom_items | armory_items | other_items
+all_items = upgrade_disks | keys | showroom_items | armory_items | other_items | upgrade_items

@@ -93,8 +93,8 @@ ITEM_NAME_TO_ID = (
         #
         "Dug Up Nothing": 50000,
     }
-    | {k: v[ROOM_ITEM_ID_KEY] for k, v in rooms.items()}
-    | {k: v[ITEM_ID_KEY] for k, v in all_items.items()}
+    | {k: v[ROOM_ITEM_ID_KEY] * 100_000 for k, v in rooms.items()}
+    | {k: v[ITEM_ID_KEY] * 1_000_000 for k, v in all_items.items()}
 )
 
 
@@ -189,7 +189,6 @@ class BluePrinceItem(Item):
     game = "Blue Prince"
 
 
-# TODO-0: Fix these because the filler currently does not match ACTUAL filler options.
 def get_random_filler_item_name(world: BluePrinceWorld) -> str:
 
     if world.random.randint(0, 99) < world.options.trap_percentage:
@@ -202,23 +201,32 @@ def get_random_filler_item_name(world: BluePrinceWorld) -> str:
         count = world.random.randint(0, 99)
 
         match choice:
+            case "freeze_traps":
+                return "Trap Freeze Items"
+
             case "step_traps_1":
                 return "Trap Take Step 1"
             case "step_traps_2":
                 return "Trap Take Step 2"
             case "step_traps_5":
                 return "Trap Take Step 5"
+
+            case "step_traps_set_to_1":
+                return "Trap Set Steps 1"
+            case "step_traps_set_to_10":
+                return "Trap Set Steps 10"
+
             case "star_traps_1":
                 return "Trap Lose Star 1"
             case "star_traps_2":
                 return "Trap Lose Star 2"
             case "star_traps_5":
                 return "Trap Lose Star 5"
-            case "freeze_traps":
-                return "Trap Freeze Items"
+
             case "eod_traps":
                 return "Trap End Day"
-            case "item_traps":
+
+            case "step_traps":
                 if count < 20:
                     return "Trap Take Step 5"
                 elif count < 60:
@@ -251,52 +259,72 @@ def get_random_filler_item_name(world: BluePrinceWorld) -> str:
                 return "Extra Coin 2"
             case "extra_coins_5":
                 return "Extra Coin 5"
-            case "extra_keys_1":
-                return "Extra Keys 1"
-            case "extra_keys_2":
-                return "Extra Keys 2"
-            case "extra_keys_3":
-                return "Extra Keys 3"
-            case "extra_gems_1":
-                return "Extra Gems 1"
-            case "extra_gems_2":
-                return "Extra Gems 2"
-            case "extra_steps_1":
-                return "Extra Steps 1"
-            case "extra_steps_2":
-                return "Extra Steps 2"
-            case "extra_steps_5":
-                return "Extra Steps 5"
             case "extra_dice_1":
                 return "Extra Dice 1"
             case "extra_dice_2":
                 return "Extra Dice 2"
             case "extra_dice_4":
                 return "Extra Dice 4"
-            case "extra_stars_1":
-                return "Extra Stars 1"
-            case "extra_stars_2":
-                return "Extra Stars 2"
-            case "extra_stars_5":
-                return "Extra Stars 5"
             case "extra_fruit_apple":
                 return "Extra Fruits Apple"
             case "extra_fruit_banana":
                 return "Extra Fruits Banana"
             case "extra_fruit_orange":
                 return "Extra Fruits Orange"
+            case "extra_gems_1":
+                return "Extra Gems 1"
+            case "extra_gems_2":
+                return "Extra Gems 2"
+            case "extra_keys_1":
+                return "Extra Keys 1"
+            case "extra_keys_2":
+                return "Extra Keys 2"
+            case "extra_keys_3":
+                return "Extra Keys 3"
+            case "extra_stars_1":
+                return "Extra Stars 1"
+            case "extra_stars_2":
+                return "Extra Stars 2"
+            case "extra_stars_5":
+                return "Extra Stars 5"
+
+            case "extra_starting_dice_1":
+                return "Extra Starting Dice 1"
+            case "extra_starting_dice_2":
+                return "Extra Starting Dice 2"
+            case "extra_starting_gems_1":
+                return "Extra Starting Gems 1"
+            case "extra_starting_gems_2":
+                return "Extra Starting Gems 2"
+            case "extra_starting_key_1":
+                return "Extra Starting Key 1"
+            case "extra_starting_key_2":
+                return "Extra Starting Key 2"
+            case "extra_starting_luck_1":
+                return "Extra Starting Luck 1"
+            case "extra_starting_luck_2":
+                return "Extra Starting Luck 2"
+            case "extra_starting_steps_5":
+                return "Extra Starting Steps 5"
+            case "extra_starting_steps_10":
+                return "Extra Starting Steps 10"
+
+            case "extra_steps_1":
+                return "Extra Steps 1"
+            case "extra_steps_2":
+                return "Extra Steps 2"
+            case "extra_steps_5":
+                return "Extra Steps 5"
             case "nothing":
                 return "Dug Up Nothing"
 
             case "extra_allowance":
-
                 if count < 20:
                     return "Extra Allowance 2"
                 else:
                     return "Extra Allowance 1"
 
             case "extra_coins":
-
                 if count < 20:
                     return "Extra Coin 5"
                 elif count < 60:
@@ -304,6 +332,27 @@ def get_random_filler_item_name(world: BluePrinceWorld) -> str:
                 else:
                     return "Extra Coin 1"
 
+            case "extra_dice":
+                if count < 10:
+                    return "Extra Dice 4"
+                elif count < 40:
+                    return "Extra Dice 2"
+                else:
+                    return "Extra Dice 1"
+
+            case "extra_fruit":
+                if count < 20:
+                    return "Extra Fruit Orange"
+                elif count < 50:
+                    return "Extra Fruit Banana"
+                else:
+                    return "Extra Fruit Apple"
+
+            case "extra_gems":
+                if count < 30:
+                    return "Extra Gems 2"
+                else:
+                    return "Extra Gems 1"
             case "extra_keys":
 
                 if count < 10:
@@ -313,32 +362,7 @@ def get_random_filler_item_name(world: BluePrinceWorld) -> str:
                 else:
                     return "Extra Keys 1"
 
-            case "extra_gems":
-                if count < 30:
-                    return "Extra Gems 2"
-                else:
-                    return "Extra Gems 1"
-
-            case "extra_steps":
-
-                if count < 20:
-                    return "Extra Steps 5"
-                elif count < 60:
-                    return "Extra Steps 2"
-                else:
-                    return "Extra Steps 1"
-
-            case "extra_dice":
-
-                if count < 10:
-                    return "Extra Dice 4"
-                elif count < 40:
-                    return "Extra Dice 2"
-                else:
-                    return "Extra Dice 1"
-
             case "extra_stars":
-
                 if count < 20:
                     return "Extra Stars 5"
                 elif count < 60:
@@ -346,13 +370,43 @@ def get_random_filler_item_name(world: BluePrinceWorld) -> str:
                 else:
                     return "Extra Stars 1"
 
-            case "extra_fruit":
+            case "extra_starting_dice":
                 if count < 20:
-                    return "Extra Fruit Orange"
-                elif count < 50:
-                    return "Extra Fruit Banana"
+                    return "Extra Starting Dice 2"
                 else:
-                    return "Extra Fruit Apple"
+                    return "Extra Starting Dice 1"
+
+            case "extra_starting_gems":
+                if count < 20:
+                    return "Extra Starting Gems 2"
+                else:
+                    return "Extra Starting Gems 1"
+
+            case "extra_starting_key":
+                if count < 20:
+                    return "Extra Starting Key 2"
+                else:
+                    return "Extra Starting Key 1"
+
+            case "extra_starting_luck":
+                if count < 20:
+                    return "Extra Starting Luck 2"
+                else:
+                    return "Extra Starting Luck 1"
+
+            case "extra_starting_steps":
+                if count < 20:
+                    return "Extra Starting Steps 10"
+                else:
+                    return "Extra Starting Steps 5"
+
+            case "extra_steps":
+                if count < 20:
+                    return "Extra Steps 5"
+                elif count < 60:
+                    return "Extra Steps 2"
+                else:
+                    return "Extra Steps 1"
 
     return "Dug Up Nothing"
 

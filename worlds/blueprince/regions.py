@@ -29,6 +29,15 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     basement = Region("Basement", world.player, world.multiworld)
     catacombs = Region("Catacombs", world.player, world.multiworld)
     inner_sanctum = Region("Inner Sanctum", world.player, world.multiworld)
+    orinda_aries_sanctum = Region("Orinda Aries Sanctum", world.player, world.multiworld)
+    fenn_aries_sanctum = Region("Fenn Aries Sanctum", world.player, world.multiworld)
+    arch_aries_sanctum = Region("Arch Aries Sanctum", world.player, world.multiworld)
+    eraja_sanctum = Region("Eraja Sanctum", world.player, world.multiworld)
+    corarica_sanctum = Region("Corarica Sanctum", world.player, world.multiworld)
+    mora_jai_sanctum = Region("Mora Jai Sanctum", world.player, world.multiworld)
+    verra_sanctum = Region("Verra Sanctum", world.player, world.multiworld)
+    nuance_sanctum = Region("Nuance Sanctum", world.player, world.multiworld)
+
     the_precipice = Region("The Precipice", world.player, world.multiworld)
     reservoir_gear_side = Region("Reservoir Gear Side", world.player, world.multiworld)
     reservoir_fountain_side = Region("Reservoir Fountain Side", world.player, world.multiworld)
@@ -68,6 +77,14 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
         basement,
         catacombs,
         inner_sanctum,
+        orinda_aries_sanctum,
+        fenn_aries_sanctum,
+        arch_aries_sanctum,
+        eraja_sanctum,
+        corarica_sanctum,
+        mora_jai_sanctum,
+        verra_sanctum,
+        nuance_sanctum,
         the_precipice,
         reservoir_gear_side,
         reservoir_fountain_side,
@@ -182,6 +199,38 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     reservoir_gear_side.connect(rotating_gear, "Reservoir Gear Side To Rotating Gear")
     rotating_gear.connect(reservoir_gear_side, "Rotating Gear To Reservoir Gear Side")
     the_underpass.connect(inner_sanctum, "The Underpass To Inner Sanctum")
+
+    # TODO-1 The Sanctum Key lambdas wont work as they dont match the room counts.
+    inner_sanctum.connect(
+        orinda_aries_sanctum,
+        "Inner Sanctum To Orinda Aries Sanctum",
+        lambda state: state.has("Sanctum Key", world.player, 1),
+    )
+    inner_sanctum.connect(
+        fenn_aries_sanctum,
+        "Inner Sanctum To Fenn Aries Sanctum",
+        lambda state: state.has("Sanctum Key", world.player, 2),
+    )
+    inner_sanctum.connect(
+        arch_aries_sanctum,
+        "Inner Sanctum To Arch Aries Sanctum",
+        lambda state: state.has("Sanctum Key", world.player, 3),
+    )
+    inner_sanctum.connect(
+        eraja_sanctum, "Inner Sanctum To Eraja Sanctum", lambda state: state.has("Sanctum Key", world.player, 4)
+    )
+    inner_sanctum.connect(
+        corarica_sanctum, "Inner Sanctum To Corarica Sanctum", lambda state: state.has("Sanctum Key", world.player, 5)
+    )
+    inner_sanctum.connect(
+        mora_jai_sanctum, "Inner Sanctum To Mora Jai Sanctum", lambda state: state.has("Sanctum Key", world.player, 6)
+    )
+    inner_sanctum.connect(
+        verra_sanctum, "Inner Sanctum To Verra Sanctum", lambda state: state.has("Sanctum Key", world.player, 7)
+    )
+    inner_sanctum.connect(
+        nuance_sanctum, "Inner Sanctum To Nuance Sanctum", lambda state: state.has("Sanctum Key", world.player, 8)
+    )
     abandoned_mine.connect(excavation_tunnel, "Abandoned Mine To Excavation Tunnel")
     excavation_tunnel.connect(abandoned_mine, "Excavation Tunnel To Abandoned Mine")
     excavation_tunnel.connect(torch_chamber, "Excavation Tunnel To Torch Chamber")
@@ -265,7 +314,7 @@ def create_and_connect_regions(world: BluePrinceWorld) -> None:
     ###################################
     # COMPLEX REGION CONNECTION LOGIC #
     ###################################
-    # TODO-0 (These connections have quite complex logic relating to the )
+    # TODO-0 (These connections have quite complex logic relating to the underground and railcar puzzles.)
     reservoir_gear_side.connect(
         safehouse, "Reservoir Gear Side To Safehouse"
     )  # Pump Room & Fountain Side Access. (take fountain side to gear side, lower again, and make it back down on gear side.)

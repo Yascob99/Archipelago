@@ -26,10 +26,12 @@ ROOM_LAYOUT_TYPE_X = "room_layout_type_x"
 OUTER_ROOM_KEY = "is_outer_room"
 
 
+# This corresponds to the index of the item in the item list in the game itself.
 ITEM_ELEMENT_INDEX_KEY = "item_element_index"
-# Used to
+# Used to denote that no index exists in the main item list.
 NO_ITEM_ELEMENT_INDEX = -1
 
 # Key of the item ID in the item data table.
 ITEM_ID_KEY = "item_id"
+# Key of the item's classification in the item data table.
 ITEM_ITEM_CLASSIFICATION_KEY = "item_classification"
